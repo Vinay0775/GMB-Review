@@ -254,7 +254,9 @@
         <p class="mt-3 text-base font-bold leading-7 text-slate-700">
           Please LONG-PRESS and PASTE on the next screen.
         </p>
-        <p class="mt-4 text-sm text-slate-500">Opening Google in 3 seconds...</p>
+        <p class="mt-4 text-sm text-slate-500">
+          Opening Google in <span id="redirectCountdown" class="font-black text-forest">2</span> seconds...
+        </p>
       </div>
     </div>
 
@@ -335,6 +337,7 @@
       const reviewPreview = document.getElementById("reviewPreview");
       const googleButton = document.getElementById("googleButton");
       const copyOverlay = document.getElementById("copyOverlay");
+      const redirectCountdown = document.getElementById("redirectCountdown");
       const manualCopyModal = document.getElementById("manualCopyModal");
       const manualReviewText = document.getElementById("manualReviewText");
       const continueToGoogleButton = document.getElementById("continueToGoogleButton");
@@ -447,9 +450,18 @@
           await navigator.clipboard.writeText(reviewText);
           copyOverlay.classList.remove("hidden");
           copyOverlay.classList.add("grid");
+          let secondsLeft = 2;
+          redirectCountdown.textContent = String(secondsLeft);
+          const countdownTimer = window.setInterval(() => {
+            secondsLeft -= 1;
+            redirectCountdown.textContent = String(Math.max(secondsLeft, 0));
+            if (secondsLeft <= 0) {
+              window.clearInterval(countdownTimer);
+            }
+          }, 1000);
           window.setTimeout(() => {
             window.location.href = GOOGLE_REVIEW_URL;
-          }, 3000);
+          }, 2000);
         } catch (error) {
           manualReviewText.value = reviewText;
           manualCopyModal.classList.remove("hidden");
