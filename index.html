@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Vinita Grocery Store review gateway for private feedback and Google reviews."
+      content="Savita homelands-jaipur review gateway for private feedback and Google reviews."
     />
-    <title>Vinita Grocery Store Review Gateway</title>
+    <title>Savita homelands-jaipur Review Gateway</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -64,7 +64,7 @@
       .glass {
         background:
           linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.88)),
-          url("https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80");
+          url("https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80");
         background-position: center;
         background-size: cover;
       }
@@ -76,16 +76,16 @@
         <div class="grid w-full overflow-hidden rounded-[30px] bg-white shadow-premium ring-1 ring-black/5 lg:grid-cols-[0.92fr_1.08fr]">
           <div class="relative hidden min-h-[680px] bg-forest lg:block">
             <img
-              src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80"
-              alt="Fresh vegetables and grocery items"
+              src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1200&q=80"
+              alt="Modern real estate property"
               class="h-full w-full object-cover"
             />
             <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/28 to-transparent"></div>
             <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
-              <p class="text-sm font-bold uppercase tracking-[0.22em] text-saffron">Fresh daily essentials</p>
-              <h1 class="mt-3 text-4xl font-black leading-tight tracking-tight">Vinita Grocery Store</h1>
+              <p class="text-sm font-bold uppercase tracking-[0.22em] text-saffron">Real estate in Jaipur</p>
+              <h1 class="mt-3 text-4xl font-black leading-tight tracking-tight">Savita homelands-jaipur</h1>
               <p class="mt-4 max-w-sm text-sm leading-6 text-white/82">
-                A quick review gateway that keeps unhappy feedback private and helps happy customers post on Google.
+                JDA approved properties, transparent guidance, and a smoother property-buying experience.
               </p>
             </div>
           </div>
@@ -94,12 +94,12 @@
             <div class="mx-auto max-w-md">
               <header class="text-center lg:text-left">
                 <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-forest text-3xl shadow-button lg:mx-0">
-                  <span aria-hidden="true">V</span>
+                  <span aria-hidden="true">S</span>
                 </div>
-                <p class="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-forest">Review Gateway</p>
-                <h2 class="mt-2 text-3xl font-black tracking-tight text-ink sm:text-4xl">How was your shopping experience?</h2>
+                <p class="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-forest">Real Estate Review Gateway</p>
+                <h2 class="mt-2 text-3xl font-black tracking-tight text-ink sm:text-4xl">How was your property experience?</h2>
                 <p class="mt-3 text-sm leading-6 text-slate-600">
-                  Your rating helps us improve freshness, stock, service, billing, and the overall store experience.
+                  Your rating helps us improve property options, site visits, documentation, service, and JDA-approved property guidance.
                 </p>
               </header>
 
@@ -130,31 +130,31 @@
                     class="mt-4 space-y-4"
                     action="https://formspree.io/f/xeenzqyg"
                     method="POST"
-                    target="feedbackFrame"
                   >
                     <input id="ratingInput" type="hidden" name="rating" value="" />
-                    <input type="hidden" name="store" value="Vinita Grocery Store" />
+                    <input type="hidden" name="business" value="Savita homelands-jaipur" />
+                    <input type="hidden" name="category" value="Real Estate" />
                     <input type="hidden" name="owner_email" value="vinayvishwakarma7781@gmail.com" />
-                    <input type="hidden" name="_subject" value="Low rating feedback - Vinita Grocery Store" />
+                    <input type="hidden" name="_subject" value="Low rating feedback - Savita homelands-jaipur" />
                     <input id="improvementInput" type="hidden" name="improvement_areas" value="" />
                     <input id="smartSuggestionInput" type="hidden" name="ai_improvement_suggestion" value="" />
 
                     <div>
                       <p class="text-sm font-bold text-ink">Where should we improve?</p>
                       <div id="improvementChips" class="mt-3 flex flex-wrap gap-2" aria-label="Improvement suggestions">
-                        <button type="button" class="improvement-chip" data-improvement="Product freshness">Product freshness</button>
-                        <button type="button" class="improvement-chip" data-improvement="Stock availability">Stock availability</button>
-                        <button type="button" class="improvement-chip" data-improvement="Billing speed">Billing speed</button>
-                        <button type="button" class="improvement-chip" data-improvement="Staff behaviour">Staff behaviour</button>
-                        <button type="button" class="improvement-chip" data-improvement="Cleanliness">Cleanliness</button>
-                        <button type="button" class="improvement-chip" data-improvement="Price clarity">Price clarity</button>
+                        <button type="button" class="improvement-chip" data-improvement="JDA approval clarity">JDA approval clarity</button>
+                        <button type="button" class="improvement-chip" data-improvement="Property options">Property options</button>
+                        <button type="button" class="improvement-chip" data-improvement="Site visit timing">Site visit timing</button>
+                        <button type="button" class="improvement-chip" data-improvement="Staff response">Staff response</button>
+                        <button type="button" class="improvement-chip" data-improvement="Documentation support">Documentation support</button>
+                        <button type="button" class="improvement-chip" data-improvement="Price transparency">Price transparency</button>
                       </div>
                     </div>
 
                     <div class="rounded-2xl border border-emerald-100 bg-mint p-3">
                       <p class="text-xs font-bold uppercase tracking-[0.16em] text-forest">AI improvement suggestion</p>
                       <p id="smartSuggestion" class="mt-2 text-sm leading-6 text-slate-700">
-                        Select one or more improvement areas and we will prepare a clear action note for the store team.
+                        Select one or more improvement areas and we will prepare a clear action note for the property team.
                       </p>
                     </div>
 
@@ -182,15 +182,18 @@
                     </div>
 
                     <button
+                      id="feedbackSubmitButton"
                       type="submit"
                       class="w-full rounded-2xl bg-forest px-5 py-3.5 text-sm font-black text-white shadow-button transition hover:bg-ink focus:outline-none focus:ring-4 focus:ring-forest/25 active:scale-[0.99]"
                     >
                       Send Private Feedback
                     </button>
                   </form>
-                  <iframe class="hidden" name="feedbackFrame" title="Feedback submission"></iframe>
                   <p id="thankYouMessage" class="mt-3 hidden rounded-2xl bg-mint px-4 py-3 text-center text-sm font-bold text-forest">
-                    Thank you. Your private feedback has been submitted to the store team.
+                    Thank you. Your private feedback has been submitted to the property team.
+                  </p>
+                  <p id="feedbackError" class="mt-3 hidden rounded-2xl bg-red-50 px-4 py-3 text-center text-sm font-bold text-chilli">
+                    Sorry, feedback could not be sent. Please try again.
                   </p>
                 </div>
               </div>
@@ -208,11 +211,11 @@
                   </div>
 
                   <div id="chipGroup" class="mt-4 space-y-2" aria-label="Google review suggestions">
-                    <button type="button" class="review-chip" data-review="Vinita Grocery Store has a very good range of daily grocery items, fresh products, and helpful service. My shopping experience was smooth and convenient.">Daily grocery items were easy to find, fresh, and the shopping experience was smooth.</button>
-                    <button type="button" class="review-chip" data-review="I had a great experience at Vinita Grocery Store. The staff was polite, the store was well arranged, and the products felt fresh and reliable.">The store was well arranged, staff was polite, and products felt fresh and reliable.</button>
-                    <button type="button" class="review-chip" data-review="Vinita Grocery Store is a dependable place for household essentials. The billing was quick, the shelves were neat, and the service was friendly.">Quick billing, neat shelves, friendly service, and dependable household essentials.</button>
-                    <button type="button" class="review-chip" data-review="Good grocery store with fresh vegetables, useful daily items, and a clean shopping environment. I would recommend Vinita Grocery Store to nearby customers.">Fresh vegetables, useful daily items, clean environment, and a recommended nearby store.</button>
-                    <button type="button" class="review-chip" data-review="My visit to Vinita Grocery Store was pleasant. I liked the product variety, clear pricing, and the way the staff helped with everyday grocery needs.">Product variety, clear pricing, and helpful staff made the visit pleasant.</button>
+                    <button type="button" class="review-chip" data-review="Savita homelands-jaipur gave clear guidance about JDA approved properties in Jaipur. The team explained the options properly and made the property search feel smooth and trustworthy.">Clear guidance about JDA approved properties and a smooth property search experience.</button>
+                    <button type="button" class="review-chip" data-review="I had a very good experience with Savita homelands-jaipur. The staff was professional, property details were explained clearly, and the site visit support was helpful.">Professional staff, clear property details, and helpful site visit support.</button>
+                    <button type="button" class="review-chip" data-review="Savita homelands-jaipur is a reliable real estate service in Jaipur for JDA approved property options. I liked their transparent communication and practical guidance.">Reliable Jaipur real estate service with transparent communication and practical guidance.</button>
+                    <button type="button" class="review-chip" data-review="Good experience with Savita homelands-jaipur. They helped me understand location, pricing, documentation, and available JDA approved properties with patience.">Helpful support for location, pricing, documentation, and JDA approved property options.</button>
+                    <button type="button" class="review-chip" data-review="My experience with Savita homelands-jaipur was positive. The team shared genuine property options, explained the process well, and responded politely throughout.">Genuine property options, clear process explanation, and polite response throughout.</button>
                   </div>
 
                   <label class="mt-4 block text-sm font-bold text-ink" for="reviewPreview">Selected review text</label>
@@ -227,7 +230,7 @@
                     type="button"
                     class="mt-4 w-full rounded-2xl bg-ink px-5 py-3.5 text-sm font-black text-white shadow-lg shadow-slate-900/15 transition hover:bg-forest focus:outline-none focus:ring-4 focus:ring-forest/25 active:scale-[0.99]"
                   >
-                    Copy Review & Open Google
+                    Post on Google
                   </button>
                   <p class="mt-3 text-center text-xs leading-5 text-slate-500">
                     For a direct Google review popup, replace the URL constant with your exact GMB review link or Place ID link.
@@ -240,10 +243,73 @@
       </section>
     </main>
 
+    <div
+      id="copyOverlay"
+      class="fixed inset-0 z-50 hidden place-items-center bg-ink/80 px-5 text-center text-white backdrop-blur-md"
+      role="status"
+      aria-live="assertive"
+    >
+      <div class="w-full max-w-sm rounded-[28px] bg-white p-7 text-ink shadow-premium">
+        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-mint text-3xl">📋</div>
+        <h3 class="mt-5 text-2xl font-black">Review Copied!</h3>
+        <p class="mt-3 text-base font-bold leading-7 text-slate-700">
+          Please LONG-PRESS and PASTE on the next screen.
+        </p>
+        <p class="mt-4 text-sm text-slate-500">Opening Google in 3 seconds...</p>
+      </div>
+    </div>
+
+    <div
+      id="manualCopyModal"
+      class="fixed inset-0 z-50 hidden items-center justify-center bg-ink/80 px-5 backdrop-blur-md"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="manualCopyTitle"
+    >
+      <div class="w-full max-w-md rounded-[28px] bg-white p-5 shadow-premium sm:p-7">
+        <h3 id="manualCopyTitle" class="text-2xl font-black text-ink">Auto-copy failed</h3>
+        <p class="mt-2 text-sm font-semibold leading-6 text-slate-600">
+          Auto-copy failed. Please copy the text manually.
+        </p>
+        <textarea
+          id="manualReviewText"
+          class="mt-4 w-full resize-none rounded-2xl border border-slate-200 bg-rice px-4 py-3 text-sm leading-6 text-ink outline-none focus:border-forest focus:ring-4 focus:ring-forest/15"
+          rows="6"
+          readonly
+        ></textarea>
+        <button
+          id="continueToGoogleButton"
+          type="button"
+          class="mt-4 w-full rounded-2xl bg-forest px-5 py-3.5 text-sm font-black text-white shadow-button transition hover:bg-ink focus:outline-none focus:ring-4 focus:ring-forest/25 active:scale-[0.99]"
+        >
+          Continue to Google
+        </button>
+      </div>
+    </div>
+
+    <div
+      id="lowRatingSuccess"
+      class="fixed inset-0 z-50 hidden place-items-center bg-[linear-gradient(140deg,#fffaf0_0%,#e8f7ee_55%,#fff2d4_100%)] px-5 text-center"
+      role="status"
+      aria-live="assertive"
+    >
+      <div class="w-full max-w-md rounded-[30px] bg-white p-7 shadow-premium ring-1 ring-black/5">
+        <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-mint text-3xl text-forest">✓</div>
+        <p class="mt-5 text-sm font-black uppercase tracking-[0.18em] text-forest">Thank you</p>
+        <h3 class="mt-2 text-3xl font-black leading-tight text-ink">Sorry for the inconvenience.</h3>
+        <p class="mt-4 text-base font-semibold leading-7 text-slate-700">
+          Your feedback has reached our team. Next time jab aap aayenge, hum poori koshish karenge ki ye problem aapko dobara face na karni pade.
+        </p>
+        <p class="mt-4 rounded-2xl bg-mint px-4 py-3 text-sm font-bold leading-6 text-forest">
+          We will review your message and improve the exact property-service area you selected.
+        </p>
+      </div>
+    </div>
+
     <script>
       // For direct Google review composer, replace this with:
       // https://search.google.com/local/writereview?placeid=YOUR_GOOGLE_PLACE_ID
-      const GOOGLE_REVIEW_URL = "https://share.google/eef4NRBRjfeow1oFm";
+      const GOOGLE_REVIEW_URL = "https://www.google.com/search?sca_esv=9e2e019df830fef1&aep=1&sxsrf=ANbL-n4dXRucJ4-zNTmKxWwCYqy03G329Q:1778126246142&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOWP0kTmil9d3icM9mD_FUAjL2V9rYvlGIjtZl7ryBntFGiAfTeW3rOt0GHz7miK-_4nVVcPHUA33ZgYkSVrPr5kdGqLsHMz_sIHPndx-OLldj65HDg%3D%3D&q=Savita+Homelands-jaipur+Reviews&sa=X&ved=2ahUKEwjXnZG6pKaUAxVsUGwGHVdQDrwQ0bkNegQINRAH&biw=1528&bih=732&dpr=1.25#";
       const chipBaseClass =
         "w-full rounded-2xl border px-4 py-3 text-left text-sm font-semibold leading-6 transition focus:outline-none focus:ring-4 focus:ring-forest/20";
       const chipIdleClass = "border-emerald-100 bg-white text-slate-700 hover:border-forest hover:bg-mint";
@@ -259,7 +325,9 @@
       const feedbackPanel = document.getElementById("feedbackPanel");
       const googlePanel = document.getElementById("googlePanel");
       const feedbackForm = document.getElementById("feedbackForm");
+      const feedbackSubmitButton = document.getElementById("feedbackSubmitButton");
       const thankYouMessage = document.getElementById("thankYouMessage");
+      const feedbackError = document.getElementById("feedbackError");
       const reviewChips = Array.from(document.querySelectorAll("[data-review]"));
       const improvementChips = Array.from(document.querySelectorAll("[data-improvement]"));
       const improvementInput = document.getElementById("improvementInput");
@@ -267,6 +335,11 @@
       const smartSuggestionInput = document.getElementById("smartSuggestionInput");
       const reviewPreview = document.getElementById("reviewPreview");
       const googleButton = document.getElementById("googleButton");
+      const copyOverlay = document.getElementById("copyOverlay");
+      const manualCopyModal = document.getElementById("manualCopyModal");
+      const manualReviewText = document.getElementById("manualReviewText");
+      const continueToGoogleButton = document.getElementById("continueToGoogleButton");
+      const lowRatingSuccess = document.getElementById("lowRatingSuccess");
 
       let selectedRating = 0;
       let selectedReview = reviewChips[0]?.dataset.review || "";
@@ -301,6 +374,7 @@
         ratingInput.value = String(rating);
         updateStars(rating);
         thankYouMessage.classList.add("hidden");
+        feedbackError.classList.add("hidden");
 
         if (rating <= 3) {
           ratingText.textContent = "Sorry for the inconvenience. Please send this privately so we can improve.";
@@ -331,8 +405,8 @@
         improvementInput.value = areas;
 
         const message = areas
-          ? `Priority improvement for rating ${selectedRating}: focus on ${areas}. Assign one team member to check this daily, review customer complaints, and confirm that the next customer visit feels smoother.`
-          : "Select one or more improvement areas and we will prepare a clear action note for the store team.";
+          ? `Priority improvement for rating ${selectedRating}: focus on ${areas}. Assign one team member to follow up, review the property-service issue, and make sure the next client experience feels smoother and more transparent.`
+          : "Select one or more improvement areas and we will prepare a clear action note for the property team.";
 
         smartSuggestion.textContent = message;
         smartSuggestionInput.value = message;
@@ -372,20 +446,58 @@
         const reviewText = reviewPreview.value.trim() || selectedReview;
         try {
           await navigator.clipboard.writeText(reviewText);
+          copyOverlay.classList.remove("hidden");
+          copyOverlay.classList.add("grid");
+          window.setTimeout(() => {
+            window.location.href = GOOGLE_REVIEW_URL;
+          }, 3000);
         } catch (error) {
-          alert("Please long-press and paste your review on the next screen");
-        } finally {
-          window.location.href = GOOGLE_REVIEW_URL;
+          manualReviewText.value = reviewText;
+          manualCopyModal.classList.remove("hidden");
+          manualCopyModal.classList.add("flex");
+          manualReviewText.focus();
+          manualReviewText.select();
         }
       });
 
-      feedbackForm.addEventListener("submit", () => {
-        thankYouMessage.classList.remove("hidden");
-        document.getElementById("privateFeedback").value = "";
-        document.getElementById("customerName").value = "";
-        window.setTimeout(() => {
-          thankYouMessage.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        }, 100);
+      continueToGoogleButton.addEventListener("click", () => {
+        window.location.href = GOOGLE_REVIEW_URL;
+      });
+
+      feedbackForm.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        feedbackError.classList.add("hidden");
+        feedbackSubmitButton.disabled = true;
+        feedbackSubmitButton.textContent = "Sending...";
+
+        try {
+          const response = await fetch(feedbackForm.action, {
+            method: "POST",
+            body: new FormData(feedbackForm),
+            headers: {
+              Accept: "application/json",
+            },
+          });
+
+          if (!response.ok) {
+            throw new Error("Formspree submission failed");
+          }
+
+          feedbackForm.reset();
+          selectedImprovements = [];
+          improvementChips.forEach((chip) => {
+            chip.className = `improvement-chip ${improvementBaseClass} ${improvementIdleClass}`;
+            chip.setAttribute("aria-pressed", "false");
+          });
+          updateSmartSuggestion();
+          lowRatingSuccess.classList.remove("hidden");
+          lowRatingSuccess.classList.add("grid");
+        } catch (error) {
+          feedbackError.classList.remove("hidden");
+        } finally {
+          feedbackSubmitButton.disabled = false;
+          feedbackSubmitButton.textContent = "Send Private Feedback";
+        }
       });
 
       selectReview(selectedReview);
