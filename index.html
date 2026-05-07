@@ -210,11 +210,10 @@
                   </div>
 
                   <div id="chipGroup" class="mt-4 space-y-2" aria-label="Google review suggestions">
-                    <button type="button" class="review-chip" data-review="Savita homelands-jaipur gave clear guidance about JDA approved properties in Jaipur. The team explained the options properly and made the property search feel smooth and trustworthy.">Clear guidance about JDA approved properties and a smooth property search experience.</button>
-                    <button type="button" class="review-chip" data-review="I had a very good experience with Savita homelands-jaipur. The staff was professional, property details were explained clearly, and the site visit support was helpful.">Professional staff, clear property details, and helpful site visit support.</button>
-                    <button type="button" class="review-chip" data-review="Savita homelands-jaipur is a reliable real estate service in Jaipur for JDA approved property options. I liked their transparent communication and practical guidance.">Reliable Jaipur real estate service with transparent communication and practical guidance.</button>
-                    <button type="button" class="review-chip" data-review="Good experience with Savita homelands-jaipur. They helped me understand location, pricing, documentation, and available JDA approved properties with patience.">Helpful support for location, pricing, documentation, and JDA approved property options.</button>
-                    <button type="button" class="review-chip" data-review="My experience with Savita homelands-jaipur was positive. The team shared genuine property options, explained the process well, and responded politely throughout.">Genuine property options, clear process explanation, and polite response throughout.</button>
+                    <button type="button" class="review-chip" data-category="Prime Location">Prime Location</button>
+                    <button type="button" class="review-chip" data-category="Smooth Process">Smooth Process</button>
+                    <button type="button" class="review-chip" data-category="Helpful Team">Helpful Team</button>
+                    <button type="button" class="review-chip" data-category="Great Investment">Great Investment</button>
                   </div>
 
                   <label class="mt-4 block text-sm font-bold text-ink" for="reviewPreview">Selected review text</label>
@@ -311,6 +310,82 @@
       // For direct Google review composer, replace this with:
       // https://search.google.com/local/writereview?placeid=YOUR_GOOGLE_PLACE_ID
       const GOOGLE_REVIEW_URL = "https://www.google.com/search?sca_esv=9e2e019df830fef1&aep=1&sxsrf=ANbL-n4dXRucJ4-zNTmKxWwCYqy03G329Q:1778126246142&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOWP0kTmil9d3icM9mD_FUAjL2V9rYvlGIjtZl7ryBntFGiAfTeW3rOt0GHz7miK-_4nVVcPHUA33ZgYkSVrPr5kdGqLsHMz_sIHPndx-OLldj65HDg%3D%3D&q=Savita+Homelands-jaipur+Reviews&sa=X&ved=2ahUKEwjXnZG6pKaUAxVsUGwGHVdQDrwQ0bkNegQINRAH&biw=1528&bih=732&dpr=1.25#";
+      const reviewVariations = {
+        "Prime Location": [
+          "The location options shown by Savita homelands-jaipur were practical and well connected for daily travel.",
+          "I liked how they explained nearby roads, schools, markets, and future development before showing the plot.",
+          "The JDA approved plots they suggested had great connectivity and felt suitable for family planning.",
+          "Location clarity was the best part of my visit. They did not just show land, they explained the area properly.",
+          "The property location looked promising, with easy access to main Jaipur routes and nearby essentials.",
+          "I was searching for a plot with peaceful surroundings and good approach road, and their options matched that need.",
+          "Their team helped me compare multiple localities in Jaipur instead of pushing only one property.",
+          "The site had good road access, clear surroundings, and felt like a sensible location for long-term use.",
+          "They explained the location benefits in a simple way, including connectivity, nearby facilities, and future scope.",
+          "I found the location guidance very useful because they shared both strong points and practical details.",
+          "The plot location was easy to reach, and the site visit made the decision much clearer for me.",
+          "For buyers looking around Jaipur, their JDA approved property locations are worth checking."
+        ],
+        "Smooth Process": [
+          "The whole process felt smooth, from first discussion to site visit and basic paperwork explanation.",
+          "They explained transparent paperwork clearly and gave enough time to understand each property detail.",
+          "I appreciated the simple process. Site visit, pricing discussion, and documentation support were handled calmly.",
+          "The team made the registry-related steps easier to understand, which helped me feel more confident.",
+          "My property search became less confusing because they explained each step without pressure.",
+          "They guided me through JDA approval details, payment planning, and paperwork in a very organized manner.",
+          "The site visit was smooth and the follow-up after the visit was also timely.",
+          "I liked that they kept the process transparent and answered paperwork questions patiently.",
+          "From shortlisting to visit scheduling, everything was handled professionally and without unnecessary delay.",
+          "The process was simple for a first-time buyer like me, especially around documents and registry points.",
+          "They helped me understand the buying process in plain language, which made the experience comfortable.",
+          "The property discussion was clear, the site visit was easy, and the paperwork guidance felt reliable."
+        ],
+        "Helpful Team": [
+          "The team was helpful and explained JDA approved plots without using confusing real estate language.",
+          "I liked their polite response and patience while answering my questions about location and paperwork.",
+          "The staff listened to my budget and requirement first, then suggested suitable property options.",
+          "They were professional during the site visit and shared genuine details about the property.",
+          "The team gave clear guidance and did not make the conversation feel rushed.",
+          "Their response was quick, and they helped me compare property options with practical points.",
+          "I had a good experience because the team explained pricing, location, and documents properly.",
+          "The staff was cooperative and helped arrange a smooth site visit at a convenient time.",
+          "They guided me honestly about JDA approved property options in Jaipur and answered every doubt.",
+          "The team made the whole discussion comfortable, especially for someone buying property after a long time.",
+          "I appreciated their calm approach and helpful nature during property selection.",
+          "They shared useful details, followed up politely, and helped me understand the next steps."
+        ],
+        "Great Investment": [
+          "The property options looked good for long-term investment because the locations had strong future scope.",
+          "Savita homelands-jaipur helped me understand why JDA approved plots can be a safer investment choice.",
+          "I liked the investment guidance because they explained location growth, connectivity, and documentation clearly.",
+          "The plot options felt practical for both personal use and future value appreciation.",
+          "They showed properties with good connectivity, which is important for a real estate investment in Jaipur.",
+          "The investment discussion was realistic and based on location, paperwork, and development potential.",
+          "I found the JDA approved property options suitable for someone planning a secure long-term investment.",
+          "The team explained future prospects of the area without overpromising, which I appreciated.",
+          "The property felt like a strong investment because of road access, clear paperwork, and location growth.",
+          "For buyers looking at Jaipur real estate, their options felt balanced between budget and future value.",
+          "They helped me see the investment angle clearly, including connectivity and registry-related confidence.",
+          "The property suggestions were sensible, transparent, and suitable for a long-term real estate plan."
+        ]
+      };
+
+      function getRandomReview(category) {
+        const categoryReviews = reviewVariations[category] || reviewVariations["Prime Location"];
+        const selectedSentence = categoryReviews[Math.floor(Math.random() * categoryReviews.length)];
+        const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+        const currentDay = days[new Date().getDay()];
+        const closings = [
+          ` We visited the site this ${currentDay} and felt confident about the option.`,
+          ` Finished my discussion this ${currentDay}, and the experience was very positive.`,
+          ` Had my site visit this ${currentDay}, highly recommended for serious property buyers.`,
+          ` Checked the details this ${currentDay} and liked the transparent approach.`,
+          ` Completed my property discussion this ${currentDay} and felt the guidance was useful.`
+        ];
+        const closing = closings[Math.floor(Math.random() * closings.length)];
+
+        return `${selectedSentence}${closing}`;
+      }
+
       const chipBaseClass =
         "w-full rounded-2xl border px-4 py-3 text-left text-sm font-semibold leading-6 transition focus:outline-none focus:ring-4 focus:ring-forest/20";
       const chipIdleClass = "border-emerald-100 bg-white text-slate-700 hover:border-forest hover:bg-mint";
@@ -329,7 +404,7 @@
       const feedbackSubmitButton = document.getElementById("feedbackSubmitButton");
       const thankYouMessage = document.getElementById("thankYouMessage");
       const feedbackError = document.getElementById("feedbackError");
-      const reviewChips = Array.from(document.querySelectorAll("[data-review]"));
+      const reviewChips = Array.from(document.querySelectorAll("[data-category]"));
       const improvementChips = Array.from(document.querySelectorAll("[data-improvement]"));
       const improvementInput = document.getElementById("improvementInput");
       const smartSuggestion = document.getElementById("smartSuggestion");
@@ -344,7 +419,8 @@
       const lowRatingSuccess = document.getElementById("lowRatingSuccess");
 
       let selectedRating = 0;
-      let selectedReview = reviewChips[0]?.dataset.review || "";
+      let selectedCategory = reviewChips[0]?.dataset.category || "Prime Location";
+      let selectedReview = getRandomReview(selectedCategory);
       let selectedImprovements = [];
 
       function setPanel(panel, isActive) {
@@ -353,7 +429,7 @@
 
         if (isActive) {
           panel.hidden = false;
-          window.requestAnimationFrame(() => panel.classList.add("is-active"));
+          panel.classList.add("is-active");
           return;
         }
 
@@ -389,14 +465,15 @@
         ratingText.textContent = "Thank you. Pick a review suggestion and we will copy it for Google.";
         setPanel(feedbackPanel, false);
         setPanel(googlePanel, true);
-        selectReview(selectedReview || reviewChips[0].dataset.review);
+        selectReview(selectedCategory);
       }
 
-      function selectReview(value) {
-        selectedReview = value;
-        reviewPreview.value = value;
+      function selectReview(category) {
+        selectedCategory = category;
+        selectedReview = getRandomReview(category);
+        reviewPreview.value = selectedReview;
         reviewChips.forEach((chip) => {
-          const isActive = chip.dataset.review === value;
+          const isActive = chip.dataset.category === category;
           chip.className = `review-chip ${chipBaseClass} ${isActive ? chipActiveClass : chipIdleClass}`;
           chip.setAttribute("aria-pressed", String(isActive));
         });
@@ -433,9 +510,9 @@
       });
 
       reviewChips.forEach((chip) => {
-        chip.className = `review-chip ${chipBaseClass} ${chip.dataset.review === selectedReview ? chipActiveClass : chipIdleClass}`;
-        chip.setAttribute("aria-pressed", String(chip.dataset.review === selectedReview));
-        chip.addEventListener("click", () => selectReview(chip.dataset.review));
+        chip.className = `review-chip ${chipBaseClass} ${chip.dataset.category === selectedCategory ? chipActiveClass : chipIdleClass}`;
+        chip.setAttribute("aria-pressed", String(chip.dataset.category === selectedCategory));
+        chip.addEventListener("click", () => selectReview(chip.dataset.category));
       });
 
       improvementChips.forEach((chip) => {
@@ -511,7 +588,7 @@
         }
       });
 
-      selectReview(selectedReview);
+      selectReview(selectedCategory);
       updateSmartSuggestion();
     </script>
   </body>
