@@ -1,0 +1,395 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Vinita Grocery Store review gateway for private feedback and Google reviews."
+    />
+    <title>Vinita Grocery Store Review Gateway</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              ink: "#16201b",
+              forest: "#1f5a3f",
+              mint: "#e8f7ee",
+              saffron: "#f8b42b",
+              chilli: "#d94835",
+              rice: "#fffaf0",
+            },
+            boxShadow: {
+              premium: "0 24px 80px rgba(22, 32, 27, 0.22)",
+              button: "0 14px 30px rgba(31, 90, 63, 0.22)",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .state-panel {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        transform: translateY(10px);
+        visibility: hidden;
+        transition:
+          max-height 380ms ease,
+          opacity 260ms ease,
+          transform 260ms ease,
+          visibility 0ms linear 380ms;
+      }
+
+      .state-panel.is-active {
+        max-height: 820px;
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+        visibility: visible;
+        transition:
+          max-height 380ms ease,
+          opacity 260ms ease,
+          transform 260ms ease,
+          visibility 0ms linear 0ms;
+      }
+
+      .star-button {
+        filter: drop-shadow(0 8px 12px rgba(248, 180, 43, 0.22));
+      }
+
+      .glass {
+        background:
+          linear-gradient(180deg, rgba(255, 255, 255, 0.94), rgba(255, 255, 255, 0.88)),
+          url("https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80");
+        background-position: center;
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <body class="min-h-screen bg-rice text-ink antialiased">
+    <main class="min-h-screen bg-[linear-gradient(140deg,#fffaf0_0%,#e8f7ee_48%,#fff2d4_100%)] px-4 py-6 sm:px-6">
+      <section class="mx-auto flex min-h-[calc(100vh-3rem)] w-full max-w-5xl items-center">
+        <div class="grid w-full overflow-hidden rounded-[30px] bg-white shadow-premium ring-1 ring-black/5 lg:grid-cols-[0.92fr_1.08fr]">
+          <div class="relative hidden min-h-[680px] bg-forest lg:block">
+            <img
+              src="https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1200&q=80"
+              alt="Fresh vegetables and grocery items"
+              class="h-full w-full object-cover"
+            />
+            <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-ink/28 to-transparent"></div>
+            <div class="absolute bottom-0 left-0 right-0 p-8 text-white">
+              <p class="text-sm font-bold uppercase tracking-[0.22em] text-saffron">Fresh daily essentials</p>
+              <h1 class="mt-3 text-4xl font-black leading-tight tracking-tight">Vinita Grocery Store</h1>
+              <p class="mt-4 max-w-sm text-sm leading-6 text-white/82">
+                A quick review gateway that keeps unhappy feedback private and helps happy customers post on Google.
+              </p>
+            </div>
+          </div>
+
+          <div class="glass p-5 sm:p-7 lg:bg-white lg:p-9">
+            <div class="mx-auto max-w-md">
+              <header class="text-center lg:text-left">
+                <div class="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-forest text-3xl shadow-button lg:mx-0">
+                  <span aria-hidden="true">V</span>
+                </div>
+                <p class="mt-5 text-xs font-bold uppercase tracking-[0.22em] text-forest">Review Gateway</p>
+                <h2 class="mt-2 text-3xl font-black tracking-tight text-ink sm:text-4xl">How was your shopping experience?</h2>
+                <p class="mt-3 text-sm leading-6 text-slate-600">
+                  Your rating helps us improve freshness, stock, service, billing, and the overall store experience.
+                </p>
+              </header>
+
+              <div class="mt-7 rounded-3xl border border-amber-100 bg-white/90 p-4 shadow-sm">
+                <div class="flex items-center justify-center gap-1 sm:gap-2" aria-label="Select a rating from 1 to 5 stars">
+                  <button class="star-button min-h-12 min-w-12 rounded-full text-4xl leading-none text-slate-300 transition hover:scale-105 hover:text-saffron focus:outline-none focus:ring-4 focus:ring-saffron/30" type="button" data-rating="1" aria-label="Rate 1 star">&#9733;</button>
+                  <button class="star-button min-h-12 min-w-12 rounded-full text-4xl leading-none text-slate-300 transition hover:scale-105 hover:text-saffron focus:outline-none focus:ring-4 focus:ring-saffron/30" type="button" data-rating="2" aria-label="Rate 2 stars">&#9733;</button>
+                  <button class="star-button min-h-12 min-w-12 rounded-full text-4xl leading-none text-slate-300 transition hover:scale-105 hover:text-saffron focus:outline-none focus:ring-4 focus:ring-saffron/30" type="button" data-rating="3" aria-label="Rate 3 stars">&#9733;</button>
+                  <button class="star-button min-h-12 min-w-12 rounded-full text-4xl leading-none text-slate-300 transition hover:scale-105 hover:text-saffron focus:outline-none focus:ring-4 focus:ring-saffron/30" type="button" data-rating="4" aria-label="Rate 4 stars">&#9733;</button>
+                  <button class="star-button min-h-12 min-w-12 rounded-full text-4xl leading-none text-slate-300 transition hover:scale-105 hover:text-saffron focus:outline-none focus:ring-4 focus:ring-saffron/30" type="button" data-rating="5" aria-label="Rate 5 stars">&#9733;</button>
+                </div>
+                <p id="ratingText" class="mt-4 min-h-6 text-center text-sm font-semibold text-slate-500">
+                  Please choose your star rating
+                </p>
+              </div>
+
+              <div id="feedbackPanel" class="state-panel mt-5" aria-live="polite" aria-hidden="true" hidden>
+                <div class="rounded-3xl border border-red-100 bg-white/95 p-4 shadow-sm">
+                  <div class="rounded-2xl bg-red-50 p-4">
+                    <p class="text-sm font-black text-chilli">We are sorry this visit was not perfect.</p>
+                    <p class="mt-2 text-sm leading-6 text-slate-700">
+                      Thank you for telling us privately. We will review your feedback and work on the exact improvement area.
+                    </p>
+                  </div>
+
+                  <form
+                    id="feedbackForm"
+                    class="mt-4 space-y-4"
+                    action="https://formspree.io/f/xeenzqyg"
+                    method="POST"
+                    target="feedbackFrame"
+                  >
+                    <input id="ratingInput" type="hidden" name="rating" value="" />
+                    <input type="hidden" name="store" value="Vinita Grocery Store" />
+                    <input type="hidden" name="owner_email" value="vinayvishwakarma7781@gmail.com" />
+                    <input type="hidden" name="_subject" value="Low rating feedback - Vinita Grocery Store" />
+                    <input id="improvementInput" type="hidden" name="improvement_areas" value="" />
+                    <input id="smartSuggestionInput" type="hidden" name="ai_improvement_suggestion" value="" />
+
+                    <div>
+                      <p class="text-sm font-bold text-ink">Where should we improve?</p>
+                      <div id="improvementChips" class="mt-3 flex flex-wrap gap-2" aria-label="Improvement suggestions">
+                        <button type="button" class="improvement-chip" data-improvement="Product freshness">Product freshness</button>
+                        <button type="button" class="improvement-chip" data-improvement="Stock availability">Stock availability</button>
+                        <button type="button" class="improvement-chip" data-improvement="Billing speed">Billing speed</button>
+                        <button type="button" class="improvement-chip" data-improvement="Staff behaviour">Staff behaviour</button>
+                        <button type="button" class="improvement-chip" data-improvement="Cleanliness">Cleanliness</button>
+                        <button type="button" class="improvement-chip" data-improvement="Price clarity">Price clarity</button>
+                      </div>
+                    </div>
+
+                    <div class="rounded-2xl border border-emerald-100 bg-mint p-3">
+                      <p class="text-xs font-bold uppercase tracking-[0.16em] text-forest">AI improvement suggestion</p>
+                      <p id="smartSuggestion" class="mt-2 text-sm leading-6 text-slate-700">
+                        Select one or more improvement areas and we will prepare a clear action note for the store team.
+                      </p>
+                    </div>
+
+                    <div>
+                      <label class="text-sm font-bold text-ink" for="customerName">Your email or phone (optional)</label>
+                      <input
+                        id="customerName"
+                        name="email"
+                        type="text"
+                        placeholder="So we can follow up if needed"
+                        class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm outline-none transition placeholder:text-slate-400 focus:border-forest focus:ring-4 focus:ring-forest/15"
+                      />
+                    </div>
+
+                    <div>
+                      <label class="text-sm font-bold text-ink" for="privateFeedback">Custom improvement message</label>
+                      <textarea
+                        id="privateFeedback"
+                        name="message"
+                        rows="5"
+                        required
+                        placeholder="Please write what went wrong or what we should improve..."
+                        class="mt-2 w-full resize-none rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm leading-6 text-ink outline-none transition placeholder:text-slate-400 focus:border-forest focus:ring-4 focus:ring-forest/15"
+                      ></textarea>
+                    </div>
+
+                    <button
+                      type="submit"
+                      class="w-full rounded-2xl bg-forest px-5 py-3.5 text-sm font-black text-white shadow-button transition hover:bg-ink focus:outline-none focus:ring-4 focus:ring-forest/25 active:scale-[0.99]"
+                    >
+                      Send Private Feedback
+                    </button>
+                  </form>
+                  <iframe class="hidden" name="feedbackFrame" title="Feedback submission"></iframe>
+                  <p id="thankYouMessage" class="mt-3 hidden rounded-2xl bg-mint px-4 py-3 text-center text-sm font-bold text-forest">
+                    Thank you. Your private feedback has been submitted to the store team.
+                  </p>
+                </div>
+              </div>
+
+              <div id="googlePanel" class="state-panel mt-5" aria-live="polite" aria-hidden="true" hidden>
+                <div class="rounded-3xl border border-emerald-100 bg-white/95 p-4 shadow-sm">
+                  <div class="flex items-start gap-3 rounded-2xl bg-mint p-4">
+                    <div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-2xl bg-forest text-sm font-black text-white">G</div>
+                    <div>
+                      <p class="text-sm font-black text-forest">Choose an AI-style Google review</p>
+                      <p class="mt-1 text-sm leading-6 text-slate-700">
+                        We will copy your selected review, then open Google so you can paste and post it.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div id="chipGroup" class="mt-4 space-y-2" aria-label="Google review suggestions">
+                    <button type="button" class="review-chip" data-review="Vinita Grocery Store has a very good range of daily grocery items, fresh products, and helpful service. My shopping experience was smooth and convenient.">Daily grocery items were easy to find, fresh, and the shopping experience was smooth.</button>
+                    <button type="button" class="review-chip" data-review="I had a great experience at Vinita Grocery Store. The staff was polite, the store was well arranged, and the products felt fresh and reliable.">The store was well arranged, staff was polite, and products felt fresh and reliable.</button>
+                    <button type="button" class="review-chip" data-review="Vinita Grocery Store is a dependable place for household essentials. The billing was quick, the shelves were neat, and the service was friendly.">Quick billing, neat shelves, friendly service, and dependable household essentials.</button>
+                    <button type="button" class="review-chip" data-review="Good grocery store with fresh vegetables, useful daily items, and a clean shopping environment. I would recommend Vinita Grocery Store to nearby customers.">Fresh vegetables, useful daily items, clean environment, and a recommended nearby store.</button>
+                    <button type="button" class="review-chip" data-review="My visit to Vinita Grocery Store was pleasant. I liked the product variety, clear pricing, and the way the staff helped with everyday grocery needs.">Product variety, clear pricing, and helpful staff made the visit pleasant.</button>
+                  </div>
+
+                  <label class="mt-4 block text-sm font-bold text-ink" for="reviewPreview">Selected review text</label>
+                  <textarea
+                    id="reviewPreview"
+                    rows="4"
+                    class="mt-2 w-full resize-none rounded-2xl border border-emerald-100 bg-white px-4 py-3 text-sm leading-6 text-ink outline-none transition focus:border-forest focus:ring-4 focus:ring-forest/15"
+                  ></textarea>
+
+                  <button
+                    id="googleButton"
+                    type="button"
+                    class="mt-4 w-full rounded-2xl bg-ink px-5 py-3.5 text-sm font-black text-white shadow-lg shadow-slate-900/15 transition hover:bg-forest focus:outline-none focus:ring-4 focus:ring-forest/25 active:scale-[0.99]"
+                  >
+                    Copy Review & Open Google
+                  </button>
+                  <p class="mt-3 text-center text-xs leading-5 text-slate-500">
+                    For a direct Google review popup, replace the URL constant with your exact GMB review link or Place ID link.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      // For direct Google review composer, replace this with:
+      // https://search.google.com/local/writereview?placeid=YOUR_GOOGLE_PLACE_ID
+      const GOOGLE_REVIEW_URL = "https://share.google/eef4NRBRjfeow1oFm";
+      const chipBaseClass =
+        "w-full rounded-2xl border px-4 py-3 text-left text-sm font-semibold leading-6 transition focus:outline-none focus:ring-4 focus:ring-forest/20";
+      const chipIdleClass = "border-emerald-100 bg-white text-slate-700 hover:border-forest hover:bg-mint";
+      const chipActiveClass = "border-forest bg-forest text-white shadow-button";
+      const improvementBaseClass =
+        "rounded-full border px-3.5 py-2 text-sm font-bold transition focus:outline-none focus:ring-4 focus:ring-forest/15";
+      const improvementIdleClass = "border-slate-200 bg-white text-slate-700 hover:border-chilli hover:bg-red-50";
+      const improvementActiveClass = "border-chilli bg-chilli text-white shadow-lg shadow-red-900/10";
+
+      const ratingButtons = Array.from(document.querySelectorAll("[data-rating]"));
+      const ratingText = document.getElementById("ratingText");
+      const ratingInput = document.getElementById("ratingInput");
+      const feedbackPanel = document.getElementById("feedbackPanel");
+      const googlePanel = document.getElementById("googlePanel");
+      const feedbackForm = document.getElementById("feedbackForm");
+      const thankYouMessage = document.getElementById("thankYouMessage");
+      const reviewChips = Array.from(document.querySelectorAll("[data-review]"));
+      const improvementChips = Array.from(document.querySelectorAll("[data-improvement]"));
+      const improvementInput = document.getElementById("improvementInput");
+      const smartSuggestion = document.getElementById("smartSuggestion");
+      const smartSuggestionInput = document.getElementById("smartSuggestionInput");
+      const reviewPreview = document.getElementById("reviewPreview");
+      const googleButton = document.getElementById("googleButton");
+
+      let selectedRating = 0;
+      let selectedReview = reviewChips[0]?.dataset.review || "";
+      let selectedImprovements = [];
+
+      function setPanel(panel, isActive) {
+        panel.setAttribute("aria-hidden", String(!isActive));
+        panel.inert = !isActive;
+
+        if (isActive) {
+          panel.hidden = false;
+          window.requestAnimationFrame(() => panel.classList.add("is-active"));
+          return;
+        }
+
+        panel.classList.remove("is-active");
+        panel.hidden = true;
+      }
+
+      function updateStars(rating) {
+        ratingButtons.forEach((button) => {
+          const buttonRating = Number(button.dataset.rating);
+          const selected = buttonRating <= rating;
+          button.classList.toggle("text-saffron", selected);
+          button.classList.toggle("text-slate-300", !selected);
+          button.setAttribute("aria-pressed", String(buttonRating === rating));
+        });
+      }
+
+      function updateRating(rating) {
+        selectedRating = rating;
+        ratingInput.value = String(rating);
+        updateStars(rating);
+        thankYouMessage.classList.add("hidden");
+
+        if (rating <= 3) {
+          ratingText.textContent = "Sorry for the inconvenience. Please send this privately so we can improve.";
+          setPanel(feedbackPanel, true);
+          setPanel(googlePanel, false);
+          updateSmartSuggestion();
+          return;
+        }
+
+        ratingText.textContent = "Thank you. Pick a review suggestion and we will copy it for Google.";
+        setPanel(feedbackPanel, false);
+        setPanel(googlePanel, true);
+        selectReview(selectedReview || reviewChips[0].dataset.review);
+      }
+
+      function selectReview(value) {
+        selectedReview = value;
+        reviewPreview.value = value;
+        reviewChips.forEach((chip) => {
+          const isActive = chip.dataset.review === value;
+          chip.className = `review-chip ${chipBaseClass} ${isActive ? chipActiveClass : chipIdleClass}`;
+          chip.setAttribute("aria-pressed", String(isActive));
+        });
+      }
+
+      function updateSmartSuggestion() {
+        const areas = selectedImprovements.join(", ");
+        improvementInput.value = areas;
+
+        const message = areas
+          ? `Priority improvement for rating ${selectedRating}: focus on ${areas}. Assign one team member to check this daily, review customer complaints, and confirm that the next customer visit feels smoother.`
+          : "Select one or more improvement areas and we will prepare a clear action note for the store team.";
+
+        smartSuggestion.textContent = message;
+        smartSuggestionInput.value = message;
+      }
+
+      function toggleImprovement(value) {
+        selectedImprovements = selectedImprovements.includes(value)
+          ? selectedImprovements.filter((item) => item !== value)
+          : [...selectedImprovements, value];
+
+        improvementChips.forEach((chip) => {
+          const isActive = selectedImprovements.includes(chip.dataset.improvement);
+          chip.className = `improvement-chip ${improvementBaseClass} ${isActive ? improvementActiveClass : improvementIdleClass}`;
+          chip.setAttribute("aria-pressed", String(isActive));
+        });
+
+        updateSmartSuggestion();
+      }
+
+      ratingButtons.forEach((button) => {
+        button.addEventListener("click", () => updateRating(Number(button.dataset.rating)));
+      });
+
+      reviewChips.forEach((chip) => {
+        chip.className = `review-chip ${chipBaseClass} ${chip.dataset.review === selectedReview ? chipActiveClass : chipIdleClass}`;
+        chip.setAttribute("aria-pressed", String(chip.dataset.review === selectedReview));
+        chip.addEventListener("click", () => selectReview(chip.dataset.review));
+      });
+
+      improvementChips.forEach((chip) => {
+        chip.className = `improvement-chip ${improvementBaseClass} ${improvementIdleClass}`;
+        chip.setAttribute("aria-pressed", "false");
+        chip.addEventListener("click", () => toggleImprovement(chip.dataset.improvement));
+      });
+
+      googleButton.addEventListener("click", async () => {
+        const reviewText = reviewPreview.value.trim() || selectedReview;
+        try {
+          await navigator.clipboard.writeText(reviewText);
+        } catch (error) {
+          alert("Please long-press and paste your review on the next screen");
+        } finally {
+          window.location.href = GOOGLE_REVIEW_URL;
+        }
+      });
+
+      feedbackForm.addEventListener("submit", () => {
+        thankYouMessage.classList.remove("hidden");
+        document.getElementById("privateFeedback").value = "";
+        document.getElementById("customerName").value = "";
+        window.setTimeout(() => {
+          thankYouMessage.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 100);
+      });
+
+      selectReview(selectedReview);
+      updateSmartSuggestion();
+    </script>
+  </body>
+</html>
